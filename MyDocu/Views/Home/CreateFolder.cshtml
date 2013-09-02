@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+<label for="folderName"></label>
+<input type="text" id="folderName" />
+<button id="addFolder">Create Folder</button>
+
+<script>
+    $("#addFolder").click(function () {
+        var folderName = docu.getElementById("folderName").value;
+        if (!folderName) {
+            alert("folder gir");
+            return;
+        }
+        $.post("/Home/CreateFolder?folder=" + folderName).success(function (result) {
+            if (result && result.ok) {
+                $("#dialogbox").dialog("close");
+                window.commands.changeFolder(result.folderId);
+            } else if (result && result.Message) {
+                alert(result.Message);
+            } else {
+                alert("Unknown stuff happened");
+            }
+        });
+        });
+</script>

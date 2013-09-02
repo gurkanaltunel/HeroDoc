@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDocu", "MyDocu\MyDocu.csproj", "{15CF1E62-4938-4380-B4F2-2553A21EFC5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDocu.Tests", "MyDocu.Tests\MyDocu.Tests.csproj", "{0889CECA-D1A5-437C-AE0B-EB356EE8DA26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentService", "DocumentService\DocumentService.csproj", "{E3CC2D3C-6E93-485A-8F41-6D514F77CEB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15CF1E62-4938-4380-B4F2-2553A21EFC5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15CF1E62-4938-4380-B4F2-2553A21EFC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15CF1E62-4938-4380-B4F2-2553A21EFC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15CF1E62-4938-4380-B4F2-2553A21EFC5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0889CECA-D1A5-437C-AE0B-EB356EE8DA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0889CECA-D1A5-437C-AE0B-EB356EE8DA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0889CECA-D1A5-437C-AE0B-EB356EE8DA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0889CECA-D1A5-437C-AE0B-EB356EE8DA26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3CC2D3C-6E93-485A-8F41-6D514F77CEB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CC2D3C-6E93-485A-8F41-6D514F77CEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CC2D3C-6E93-485A-8F41-6D514F77CEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CC2D3C-6E93-485A-8F41-6D514F77CEB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

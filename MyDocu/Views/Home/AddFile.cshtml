@@ -1,0 +1,20 @@
+﻿@model MyDocu.Models.AddFileModel
+
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("AddFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <select name="profileName">
+        @foreach (var profiles in Model.Profiles)
+	{
+		 <option value="@profiles.Id">@profiles.Name</option>
+	}
+    </select>
+    <input type="hidden" name="returnUrl" id="returnUrl" />
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+}
+<script>
+    $(document).ready(function () { $("#returnUrl").val(window.location.href); })
+</script>
