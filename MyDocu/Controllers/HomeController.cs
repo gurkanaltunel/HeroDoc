@@ -87,5 +87,22 @@ namespace MyDocu.Controllers
             _sessionHelper.CurrentFile = model.File;
             return View(model);
         }
+        public ActionResult GetFile(int versionId)
+        {
+            var version = _documentService.GetFileVersionById(versionId);
+            var file = _documentService.GetFileById(version.FileId);
+            return File(version.File, "application/force-download", file.FileName);
+        }
+        [HttpPost]
+        public ActionResult AddComment(AddCommentModel model)
+        {
+            _documentService.AddComment(model.Id, model.Value);
+            return Json(new { ok = true });
+        }
+        public ActionResult GetComments(int id)
+        {
+            IList<Comment> comments = _documentService.GetCommentsByVersionId(id);
+            return View(comments);
+        }
     }
 }

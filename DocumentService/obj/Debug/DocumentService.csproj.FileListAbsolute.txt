@@ -17,3 +17,6 @@ D:\Çalışmalar\MyDocu\DocumentService\bin\Debug\Castle.Core.dll
 D:\Çalışmalar\MyDocu\DocumentService\bin\Debug\Castle.Windsor.dll
 D:\Çalışmalar\MyDocu\DocumentService\bin\Debug\Castle.Core.xml
 D:\Çalışmalar\MyDocu\DocumentService\bin\Debug\Castle.Windsor.xml
+D:\Git\HeroDoc\DocumentService\obj\Debug\DocumentService.csprojResolveAssemblyReference.cache
+D:\Git\HeroDoc\DocumentService\obj\Debug\DocumentService.dll
+D:\Git\HeroDoc\DocumentService\obj\Debug\DocumentService.pdb

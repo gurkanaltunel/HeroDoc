@@ -230,6 +230,7 @@
     <Content Include="Views\Home\Folder.cshtml" />
     <Content Include="Views\Home\CreateFolder.cshtml" />
     <Content Include="Views\Home\OpenFile.cshtml" />
+    <Content Include="Views\Home\GetComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

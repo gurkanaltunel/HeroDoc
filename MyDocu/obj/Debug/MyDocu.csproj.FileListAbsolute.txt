@@ -42,3 +42,6 @@ D:\Çalışmalar\MyDocu\MyDocu\bin\Castle.Windsor.dll
 D:\Çalışmalar\MyDocu\MyDocu\bin\Castle.Core.dll
 D:\Çalışmalar\MyDocu\MyDocu\bin\Castle.Windsor.xml
 D:\Çalışmalar\MyDocu\MyDocu\bin\Castle.Core.xml
+D:\Git\HeroDoc\MyDocu\obj\Debug\MyDocu.csprojResolveAssemblyReference.cache
+D:\Git\HeroDoc\MyDocu\obj\Debug\MyDocu.dll
+D:\Git\HeroDoc\MyDocu\obj\Debug\MyDocu.pdb
