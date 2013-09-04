@@ -7,6 +7,7 @@ using DocumentService.Models;
 using DocumentService.Repository;
 using File = DocumentService.Models.File;
 using ServiceStack.OrmLite;
+using DocumentService.Exceptions;
 
 namespace DocumentService
 {
@@ -74,12 +75,73 @@ namespace DocumentService
             }
             return GetFolderPath(folders, id);
         }
-
-        private static string GetFolderPath(IEnumerable<Folder> folders,int id,string currentPath="")
+        public Folder CreateFolder(string folderName, int parenFolderId)
+        {
+            var folder = _documentRepository.GetFolderByName(folderName, parenFolderId);
+            if (folder == null)
+            {
+                return _documentRepository.InsertNewFolder(folderName, parenFolderId, _sessionHelper.CurrentUser.Id);
+            }
+            throw new FolderAlreadyExistsException(folderName);
+        }
+        public File GetFileById(int id)
+        {
+            var file = _documentRepository.GetFileById(id);
+            if (file == null)
+            {
+                throw new FileNotFoundException(string.Format("File is with the id '{0}' not found.", id));
+            }
+            return file;
+        }
+        public IList<FileVersion> GetFileVersionAndCommentsByFileId(int id)
+        {
+            var comments = _documentRepository.GetCommentsByVersionId(id).OrderBy(comment => comment.FileVersionId);
+            var fileVersions = _documentRepository.GetFileVersionByFileId(id);
+            foreach (var fileVersion in fileVersions)
+            {
+                fileVersion.Comments = comments.Where(comment => comment.FileVersionId == fileVersion.Id).ToList();
+            }
+            foreach (var comment in comments)
+            {
+                comment.OwnerUser = _documentRepository.GetUserById(comment.OwnerId);
+            }
+            return fileVersions;
+        }
+        public FileVersion GetFileVersionById(int versionId)
+        {
+            var version = _documentRepository.GetFileVersionById(versionId);
+            if (version == null)
+            {
+                throw new FileNotFoundException(string.Format("File with the version id '{0}' not found.", versionId));
+            }
+            return version;
+        }
+        public void AddComment(int versionId, string comment)
+        {
+            var newComment = new Comment
+            {
+                FileVersionId=versionId,
+                OwnerId=_sessionHelper.CurrentUser.Id,
+                FileId=_sessionHelper.CurrentFile.Id,
+                CommentDate=DateTime.Now,
+                Text=comment
+            };
+            _documentRepository.SaveComment(newComment);
+        }
+        public IList<Comment> GetCommentsByVersionId(int versionId)
+        {
+            var comments = _documentRepository.GetCommentsByVersionId(versionId);
+            foreach (var comment in comments)
+            {
+                comment.OwnerUser = _documentRepository.GetUserById(comment.OwnerId);
+            }
+            return comments;
+        }
+        private static string GetFolderPath(IEnumerable<Folder> folders, int id, string currentPath = "")
         {
             var enumerable = folders as Folder[] ?? folders.ToArray();
             var folder = enumerable.FirstOrDefault(folder1 => folder1.Id == id);
-            if (folder==null)
+            if (folder == null)
             {
                 return currentPath;
             }
