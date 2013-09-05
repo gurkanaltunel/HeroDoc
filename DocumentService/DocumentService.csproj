@@ -73,6 +73,9 @@
     <Compile Include="Exceptions\ConnectionStringNotFoundException.cs" />
     <Compile Include="Exceptions\FolderAlreadyExistsException.cs" />
     <Compile Include="HtmlExtensions.cs" />
+    <Compile Include="Installers\RepositoryInstaller.cs" />
+    <Compile Include="Interceptors\AspectAttributeBase.cs" />
+    <Compile Include="Interceptors\AspectInterceptor.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Folder.cs" />
     <Compile Include="Models\FolderInformation.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DefaultDocumentService.cs" />
     <Compile Include="Repository\DbHelper.cs" />
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="WindsorControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>

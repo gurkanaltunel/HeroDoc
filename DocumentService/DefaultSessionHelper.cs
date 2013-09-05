@@ -18,6 +18,7 @@ namespace DocumentService
             get { return Get<UserContext>("context"); }
             private set { Set("context", value); }
         }
+
         private static TObjectType Get<TObjectType>(string key)
         {
             return (TObjectType)HttpContext.Current.Session[key];
@@ -25,6 +26,42 @@ namespace DocumentService
         private static void Set(string key, object value)
         {
             HttpContext.Current.Session[key] = value;
+        }
+
+        public FolderInformation CurrentFolder
+        {
+            get
+            {
+                return Get<FolderInformation>("currentFolder");
+            }
+            set
+            {
+                Set("currentFolder", value);
+            }
+        }
+
+        public string CurrentFolderPath
+        {
+            get;
+            set;
+        }
+
+        public File CurrentFile
+        {
+            get
+            {
+                return Get<File>("currentFile");
+            }
+            set
+            {
+                Set("currentFile", value);
+            }
+        }
+
+        public void CreateLogin(UserContext context)
+        {
+            context.LoginTime = DateTime.Now;
+            CurrentUser = context;
         }
     }
 }
