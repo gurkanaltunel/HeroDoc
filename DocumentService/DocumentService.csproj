@@ -76,6 +76,9 @@
     <Compile Include="Installers\RepositoryInstaller.cs" />
     <Compile Include="Interceptors\AspectAttributeBase.cs" />
     <Compile Include="Interceptors\AspectInterceptor.cs" />
+    <Compile Include="Interceptors\CacheAttribute.cs" />
+    <Compile Include="Interceptors\CacheHelper.cs" />
+    <Compile Include="Interceptors\RequestCacheAttribute.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Folder.cs" />
     <Compile Include="Models\FolderInformation.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="DefaultDocumentService.cs" />
     <Compile Include="Repository\DbHelper.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\SqlProfileRepository.cs" />
     <Compile Include="WindsorControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>

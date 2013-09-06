@@ -6,14 +6,16 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DocumentService;
+using DocumentService.Installers;
+using MyDocu.Services;
 
 namespace MyDocu
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static Bootstrapper _bootstrapper;
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -22,6 +24,14 @@ namespace MyDocu
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            _bootstrapper = Bootstrapper.StartApplication(new ControllerInstaller(), new RepositoryInstaller())
+                .InitializeDependencies()
+                .InstallDatabase();
+        }
+        protected void Application_End()
+        {
+            _bootstrapper.Dispose();
         }
     }
 }
