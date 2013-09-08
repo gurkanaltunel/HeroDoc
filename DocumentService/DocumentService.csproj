@@ -88,6 +88,7 @@
     <Compile Include="DefaultDocumentService.cs" />
     <Compile Include="Repository\DbHelper.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\SqlDocumentRepository.cs" />
     <Compile Include="Repository\SqlProfileRepository.cs" />
     <Compile Include="WindsorControllerFactory.cs" />
   </ItemGroup>

@@ -96,7 +96,7 @@ namespace DocumentService
         public IList<FileVersion> GetFileVersionAndCommentsByFileId(int id)
         {
             var comments = _documentRepository.GetCommentsByVersionId(id).OrderBy(comment => comment.FileVersionId);
-            var fileVersions = _documentRepository.GetFileVersionByFileId(id);
+            var fileVersions = _documentRepository.GetFileVersionsByFileId(id);
             foreach (var fileVersion in fileVersions)
             {
                 fileVersion.Comments = comments.Where(comment => comment.FileVersionId == fileVersion.Id).ToList();

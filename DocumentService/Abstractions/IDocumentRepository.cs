@@ -10,7 +10,7 @@ namespace DocumentService.Abstractions
         IList<Folder> LoadRootFolders();
         IList<Folder> GetFoldersByParentId(int id);
         IList<File> GetFilesInFolder(int id);
-        IList<FileVersion> GetFileVersionByFileId(int id);
+        IList<FileVersion> GetFileVersionsByFileId(int id);
         IList<Comment> GetCommentsByFileId(int id);
         IList<Comment> GetCommentsByVersionId(int versionId);
         Folder GetFolderById(int id);

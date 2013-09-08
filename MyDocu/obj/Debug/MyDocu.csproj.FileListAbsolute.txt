@@ -88,3 +88,6 @@ D:\Git\HeroDoc\MyDocu\bin\ServiceStack.Interfaces.xml
 D:\Git\HeroDoc\MyDocu\bin\ServiceStack.OrmLite.SqlServer.pdb
 D:\Git\HeroDoc\MyDocu\bin\ServiceStack.Text.xml
 D:\Git\HeroDoc\MyDocu\bin\ServiceStack.Common.xml
+D:\Git\HeroDoc\MyDocu\bin\RestfulRouting.dll
+D:\Git\HeroDoc\MyDocu\bin\WebActivator.dll
+D:\Git\HeroDoc\MyDocu\bin\WebActivator.pdb

@@ -92,3 +92,6 @@ D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\ServiceStack.Common.xml
 D:\Git\HeroDoc\MyDocu.Tests\obj\Debug\MyDocu.Tests.csprojResolveAssemblyReference.cache
 D:\Git\HeroDoc\MyDocu.Tests\obj\Debug\MyDocu.Tests.dll
 D:\Git\HeroDoc\MyDocu.Tests\obj\Debug\MyDocu.Tests.pdb
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\RestfulRouting.dll
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\WebActivator.dll
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\WebActivator.pdb
