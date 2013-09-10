@@ -95,3 +95,7 @@ D:\Git\HeroDoc\MyDocu.Tests\obj\Debug\MyDocu.Tests.pdb
 D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\RestfulRouting.dll
 D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\WebActivator.dll
 D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\WebActivator.pdb
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\Moq.dll
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\xunit.dll
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\Moq.xml
+D:\Git\HeroDoc\MyDocu.Tests\bin\Debug\xunit.xml

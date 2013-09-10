@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DocumentServices">
-      <HintPath>..\..\docu\DocumentServices\bin\Debug\DocumentServices.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq">
@@ -112,8 +109,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DocumentService\DocumentService.csproj">
+      <Project>{e3cc2d3c-6e93-485a-8f41-6d514f77ceb5}</Project>
+      <Name>DocumentService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyDocu\MyDocu.csproj">
-      <Project>{15CF1E62-4938-4380-B4F2-2553A21EFC5C}</Project>
+      <Project>{15cf1e62-4938-4380-b4f2-2553a21efc5c}</Project>
       <Name>MyDocu</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,5 +1,5 @@
-﻿using DocumentServices.Abstractions;
-using DocumentServices.Models;
+﻿using DocumentService.Abstractions;
+using DocumentService.Models;
 using Moq;
 using MyDocu.Controllers;
 using MyDocu.Models;
