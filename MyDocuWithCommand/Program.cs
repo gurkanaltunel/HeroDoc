@@ -13,19 +13,10 @@ namespace MyDocuWithCommand
         private readonly IProfileRepository _profileRepository;
         private readonly ISessionHelper _sessionHelper;
 
-        public void CreateFolder(string commandText,string folderName)
-        {
-            if (commandText=="mkdir")
-            {
-                _documentService.CreateFolder(folderName, _sessionHelper.CurrentFolder.FolderId);
-            }
-        }
         static void Main(string[] args)
         {
-            Console.WriteLine("enter the folder name");
-            string folderName = Console.ReadLine();
-            Program prg = new Program();
-            prg.CreateFolder("mkdir", folderName);
+            Target target = new Adapter();
+            target.Request();
         }
     }
 }

@@ -10,7 +10,12 @@ namespace MyDocuWithCommand
     {
         public void SpecificRequest()
         {
-
+            Invoker invoker = new Invoker();
+            Receiver receiver = new Receiver();
+            ConcreteCommand command = new ConcreteCommand(receiver);
+            command.Parametre = "";
+            invoker.Command = command;
+            invoker.ExecuteCommand();
         }
     }
 }

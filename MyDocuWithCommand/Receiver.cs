@@ -10,6 +10,7 @@ namespace MyDocuWithCommand
     {
         public void Action()
         {
+
         }
     }
 }

@@ -17,7 +17,7 @@ namespace MyDocuWithCommand
 
         public override void Execute()
         {
-            throw new NotImplementedException();
+            _receiver.Action();
         }
     }
 }
