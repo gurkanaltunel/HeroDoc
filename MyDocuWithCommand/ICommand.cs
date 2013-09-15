@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class Receiver
+    public interface ICommand
     {
-        public void Action()
-        {
-
-        }
+        void Execute();
     }
 }

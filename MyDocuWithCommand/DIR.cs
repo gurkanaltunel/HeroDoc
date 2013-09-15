@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class ConcreteCommand:CommandBase
+    public class DIR:Command
     {
-        public string Parametre { get; set; }
-
-        public ConcreteCommand(Receiver receiver):base(receiver)
-        {
-
-        }
-
         public override void Execute()
         {
-            _receiver.Action();
+            base.Execute();
         }
     }
 }

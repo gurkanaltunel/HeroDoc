@@ -9,14 +9,13 @@ namespace MyDocuWithCommand
 {
     class Program
     {
-        private readonly IDocumentService _documentService;
-        private readonly IProfileRepository _profileRepository;
-        private readonly ISessionHelper _sessionHelper;
-
         static void Main(string[] args)
         {
-            Target target = new Adapter();
-            target.Request();
+            string command = Console.ReadLine();
+            string parameter = Console.ReadLine();
+            InputCommand input = new InputCommand(command, parameter);
+            ICommand comfactory = new CommandFactory(input);
+            comfactory.Execute();
         }
     }
 }

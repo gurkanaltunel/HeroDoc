@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class Adapter:Target
+    public class Command
     {
-        private Adaptee _adaptee = new Adaptee();
-        public override void Request()
+        public virtual void Execute()
         {
-            _adaptee.SpecificRequest();
+
         }
     }
 }
