@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class CommandFactory:ICommand
+    public class CommandFactory:ICommandFactory
     {
         private InputCommand _input;
-        private Command command;
 
         public CommandFactory(InputCommand input)
         {
@@ -18,7 +18,13 @@ namespace MyDocuWithCommand
 
         public void Execute()
         {
-            command.Execute();
+            CultureInfo culture=CultureInfo.CurrentCulture;
+
+            if (_input._commandName.ToLower(culture)=="dir")
+            {
+                ICommand command = new DIR();
+                command.Execute();
+            }          
         }
     }
 }

@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="DIR.cs" />
     <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandFactory.cs" />
     <Compile Include="InputCommand.cs" />
+    <Compile Include="MD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

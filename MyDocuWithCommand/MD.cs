@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class Command
+    public class MD:ICommand
     {
-        public virtual void Execute()
-        {
 
+        public void Execute()
+        {
+            throw new NotImplementedException();
         }
     }
 }

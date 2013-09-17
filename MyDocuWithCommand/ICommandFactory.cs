@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class DIR:ICommand
+    public interface ICommandFactory
     {
-
-        public void Execute()
-        {
-            throw new NotImplementedException();
-        }
+        void Execute();
     }
 }

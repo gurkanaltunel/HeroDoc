@@ -14,7 +14,7 @@ namespace MyDocuWithCommand
             string command = Console.ReadLine();
             string parameter = Console.ReadLine();
             InputCommand input = new InputCommand(command, parameter);
-            ICommand comfactory = new CommandFactory(input);
+            ICommandFactory comfactory = new CommandFactory(input);
             comfactory.Execute();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public interface ICommand
+    interface ICommand
     {
         void Execute();
     }
