@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DocumentService.Abstractions;
 
 namespace MyDocuWithCommand
 {
@@ -16,15 +17,18 @@ namespace MyDocuWithCommand
             _input = input;
         }
 
-        public void Execute()
-        {
-            CultureInfo culture=CultureInfo.CurrentCulture;
-
-            if (_input._commandName.ToLower(culture)=="dir")
+        public void Specify()
+        {           
+            if (_input._commandName=="DIR")
             {
-                ICommand command = new DIR();
+                ICommand command = new Dir();
                 command.Execute();
-            }          
+            }
+            else if (_input._commandName=="Md")
+            {
+                ICommand command = new Md();
+                command.Execute();
+            }
         }
     }
 }
