@@ -167,3 +167,21 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+MyDocu.Tests/bin/Debug/MyDocu.dll
+MyDocu.Tests/bin/Debug/MyDocu.pdb
+MyDocu.Tests/bin/Debug/MyDocu.Tests.dll
+MyDocu.Tests/bin/Debug/MyDocu.Tests.pdb
+MyDocu.Tests/obj/Debug/MyDocu.Tests.csprojResolveAssemblyReference.cache
+MyDocu.Tests/obj/Debug/MyDocu.Tests.dll
+MyDocu.Tests/obj/Debug/MyDocu.Tests.pdb
+MyDocu.v11.suo
+MyDocu/bin/MyDocu.dll
+MyDocu/bin/MyDocu.pdb
+MyDocu/MyDocu.csproj
+MyDocu/obj/Debug/MyDocu.dll
+MyDocu/obj/Debug/MyDocu.pdb
+MyDocuWithCommand/bin/Debug/MyDocuWithCommand.exe
+MyDocuWithCommand/bin/Debug/MyDocuWithCommand.pdb
+MyDocuWithCommand/MyDocuWithCommand.csproj
+MyDocuWithCommand/obj/Debug/MyDocuWithCommand.exe
+MyDocuWithCommand/obj/Debug/MyDocuWithCommand.pdb
