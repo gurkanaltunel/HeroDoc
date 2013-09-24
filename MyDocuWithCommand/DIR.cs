@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DocumentService;
-using DocumentService.Abstractions;
+using System.Net;
 
 namespace MyDocuWithCommand
 {
@@ -12,7 +11,10 @@ namespace MyDocuWithCommand
     {
         public void Execute()
         {
-            
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:45704/Home/Index");
+            request.ContentType = "application/json";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            //:todo
         }
     }
 }

@@ -25,16 +25,17 @@ namespace MyDocu.Controllers
             _sessionHelper = sessionHelper;
             _sessionHelper.CreateLogin(new UserContext { Id = 1 });
         }
-        public ActionResult Index()
+        public JsonResult Index()
         {
             var currentFolder = _documentService.GetFolderInformation();
             var folders = _documentService.GetFolderTree();
             _sessionHelper.CurrentFolder = currentFolder;
-            return View(new MainViewModel
+            var data = new MainViewModel
             {
-                Folders=folders,
-                CurrentFolder=currentFolder
-            });
+                Folders = folders,
+                CurrentFolder = currentFolder
+            };
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult AddFile(int profileName, string returnUrl, HttpPostedFileBase file)
