@@ -35,7 +35,8 @@ namespace MyDocu.Controllers
                 Folders = folders,
                 CurrentFolder = currentFolder
             };
-            return Json(data, JsonRequestBehavior.AllowGet);
+           return Json(data, JsonRequestBehavior.AllowGet);
+            //return View(data);
         }
         [HttpPost]
         public ActionResult AddFile(int profileName, string returnUrl, HttpPostedFileBase file)

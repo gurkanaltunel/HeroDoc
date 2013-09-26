@@ -19,12 +19,12 @@ namespace MyDocuWithCommand
 
         public void Specify()
         {           
-            if (_input._commandName=="DIR")
+            if (_input._commandName=="dir")
             {
                 ICommand command = new Dir();
                 command.Execute();
             }
-            else if (_input._commandName=="Md")
+            else if (_input._commandName=="md")
             {
                 ICommand command = new Md();
                 command.Execute();

@@ -3,11 +3,11 @@
 }
 <label for="folderName"></label>
 <input type="text" id="folderName" />
-<button id="addFolder">Create Folder</button>
+<button id="AddFolder">Create Folder</button>
 
 <script>
-    $("#addFolder").click(function () {
-        var folderName = docu.getElementById("folderName").value;
+    $("#AddFolder").click(function () {
+        var folderName = document.getElementById("folderName").value;
         if (!folderName) {
             alert("folder gir");
             return;

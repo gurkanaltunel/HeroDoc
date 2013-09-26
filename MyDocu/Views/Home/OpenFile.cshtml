@@ -40,16 +40,16 @@
 <script>
     $(".version").click(function () {
         $(".version-item").hide();
-        $(this).find("version-item").show();
+        $(this).find(".version-item").show();
     });
-    $("returnBack").click(function () {
+    $("#returnBack").click(function () {
         window.history.back();
     }).css("cursor", "pointer");
-    $("addcomment").click(function(){
+    $("#addcomment").click(function(){
         var commentElement=document.getElementById("comment");
         $.post("/Home/AddComment",{Id: @Model.LastFileVersion.Id, Value: commentElement.value}).success(function(){
             $.get("/Home/GetComments?id="+@Model.LastFileVersion.Id).success(function(result){
-                $("comment-container").html(result);
+                $("#comment-container").html(result);
                 $(commentElement).focus();
             });
         }).fail(function(){
