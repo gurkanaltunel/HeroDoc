@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class Md:ICommand
+    public class Md
     {
+        public string folderName { get; set; }
+        public Md(string parameter)
+        {
+            folderName = parameter;
+        }
 
         public void Execute()
         {
-           
+            JsonClass jsonData = new JsonClass();
+            jsonData.PostData(folderName);
         }
     }
 }

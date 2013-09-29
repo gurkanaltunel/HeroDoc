@@ -16,9 +16,8 @@ namespace MyDocuWithCommand
         {
             _input = input;
         }
-
         public void Specify()
-        {           
+        {
             if (_input._commandName=="dir")
             {
                 ICommand command = new Dir();
@@ -26,7 +25,7 @@ namespace MyDocuWithCommand
             }
             else if (_input._commandName=="md")
             {
-                ICommand command = new Md();
+                Md command = new Md(_input._paremeter);
                 command.Execute();
             }
         }

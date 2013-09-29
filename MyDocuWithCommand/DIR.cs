@@ -5,35 +5,56 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace MyDocuWithCommand
 {
-    public class Dir:ICommand 
+    public class Dir:ICommand
     {
+        public string Name { get; set; }
+        public string ParentFolder { get; set; }
+        public string CreateDate { get; set; }
+
+        public Dir()
+        {
+           
+        }
         public void Execute()
         {
-              
-    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:45704/Home/Index");
-    request.ContentType = "application/json";
-    try {
-        WebResponse response = request.GetResponse();
-        using (Stream responseStream = response.GetResponseStream()) {
-            StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-            Console.WriteLine(reader.ReadToEnd());
+            foreach (var item in Folders())
+            {
+                Console.Write(item.CreateDate);
+                Console.Write(item.Name);
+                if (item.ParentFolder==null)
+                {
+                    Console.Write("<DIR>");
+                }
+                Console.WriteLine();
+            } 
         }
-    }
-    catch (WebException ex) {
-        WebResponse errorResponse = ex.Response;
-        using (Stream responseStream = errorResponse.GetResponseStream())
+        public IList<Dir> Folders()
         {
-            StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
-            String errorText = reader.ReadToEnd();
-            // log errorText
+            List<Dir> folders = new List<Dir>();
+            JsonClass jsonData = new JsonClass();
+            string data = jsonData.ReturnJson();
+            JObject jObject = JObject.Parse(data);
+            JToken jDir = jObject["Folders"];
+            for (int i = 0; i < jDir.Count(); i++)
+            {
+               string name = (string)jDir[i]["Name"];
+               string createDate = (string)jDir[i]["CreateDate"];
+               string parentFolder = (string)jDir[i]["ParentFolder"];
+               Dir dir = new Dir
+               {
+                   Name = name,
+                   CreateDate = createDate,
+                   ParentFolder = parentFolder
+               };
+               folders.Add(dir);
+            }
+            return folders;
         }
-        throw;
-  }
-    
-            
-        }
-    }
+      }  
 }
