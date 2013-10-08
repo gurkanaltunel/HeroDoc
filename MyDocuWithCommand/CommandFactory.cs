@@ -28,6 +28,11 @@ namespace MyDocuWithCommand
                 Md command = new Md(_input._paremeter);
                 command.Execute();
             }
+            else if (_input._commandName=="exit")
+            {
+                ICommand command = new Exit();
+                command.Execute();
+            }
         }
     }
 }

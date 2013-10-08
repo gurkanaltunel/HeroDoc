@@ -25,6 +25,13 @@ namespace MyDocu.Controllers
             _sessionHelper = sessionHelper;
             _sessionHelper.CreateLogin(new UserContext { Id = 1 });
         }
+        //public JsonResult Login(string userName,string Password)
+        //{
+        //    int id = _documentService.GetUserId(userName, Password);
+        //    _sessionHelper.CreateLogin(new UserContext { Id = id });
+        //    return Json(new { ok = true });
+
+        //}
         public JsonResult Index()
         {
             var currentFolder = _documentService.GetFolderInformation();
@@ -36,13 +43,13 @@ namespace MyDocu.Controllers
                 CurrentFolder = currentFolder
             };
            return Json(data, JsonRequestBehavior.AllowGet);
-            //return View(data);
+          // return View(data);
         }
         [HttpPost]
-        public ActionResult AddFile(int profileName, string returnUrl, HttpPostedFileBase file)
+        public JsonResult AddFile(int profileName, HttpPostedFileBase file)
         {
             _documentService.CreateDocument(file.InputStream, profileName, file.FileName);
-            return Redirect(returnUrl);
+            return Json(new {ok=true});
         }
         [HttpGet]
         public ActionResult AddFile()
@@ -69,6 +76,8 @@ namespace MyDocu.Controllers
         [HttpPost]
         public JsonResult CreateFolder(string folder)
         {
+            var currentFolder = _documentService.GetFolderInformation();
+            _sessionHelper.CurrentFolder = currentFolder;
             try
             {
                 _documentService.CreateFolder(folder, _sessionHelper.CurrentFolder.FolderId);

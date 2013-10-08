@@ -181,5 +181,13 @@ namespace DocumentService.Repository
                 }
             }
         }
+        public int GetUserId(string userName, string password)
+        {
+            using (var db = DbHelper.CreateConnection())
+            {
+               var obj= db.Select<User>(user =>  user.Username== userName&&user.Password==password).FirstOrDefault();
+               return obj.Id;
+            }
+        }
     }
 }

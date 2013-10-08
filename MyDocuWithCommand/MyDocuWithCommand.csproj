@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsonClass.cs" />
+    <Compile Include="Exit.cs" />
+    <Compile Include="RequestClass.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="Dir.cs" />
     <Compile Include="ICommand.cs" />

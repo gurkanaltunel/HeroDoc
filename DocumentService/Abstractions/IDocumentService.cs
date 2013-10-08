@@ -18,5 +18,6 @@ namespace DocumentService.Abstractions
         FileVersion GetFileVersionById(int id);
         void AddComment(int versionId, string comment);
         IList<Comment> GetCommentsByVersionId(int versionId);
+        int GetUserId(string username, string password);
     }
 }

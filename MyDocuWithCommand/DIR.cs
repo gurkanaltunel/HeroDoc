@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.IO;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
 
 namespace MyDocuWithCommand
 {
@@ -25,8 +19,8 @@ namespace MyDocuWithCommand
         {
             foreach (var item in Folders())
             {
-                Console.Write(item.CreateDate);
-                Console.Write(item.Name);
+                Console.Write(item.CreateDate+"\t");
+                Console.Write(item.Name+"\t");
                 if (item.ParentFolder==null)
                 {
                     Console.Write("<DIR>");
@@ -37,8 +31,8 @@ namespace MyDocuWithCommand
         public IList<Dir> Folders()
         {
             List<Dir> folders = new List<Dir>();
-            JsonClass jsonData = new JsonClass();
-            string data = jsonData.ReturnJson();
+            RequestClass requestMethod = new RequestClass();
+            string data = requestMethod.GetIndex();
             JObject jObject = JObject.Parse(data);
             JToken jDir = jObject["Folders"];
             for (int i = 0; i < jDir.Count(); i++)

@@ -23,6 +23,7 @@ namespace DocumentService.Abstractions
         Comment SaveComment(Comment newComment);
         void CreateNewVersionOfFile(File file, Stream inputStream);
         void CreateNewFile(File file, Stream inputStream);
+        int GetUserId(string username, string password);
         
     }
 }

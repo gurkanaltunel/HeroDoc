@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MyDocuWithCommand
 {
@@ -16,8 +14,18 @@ namespace MyDocuWithCommand
 
         public void Execute()
         {
-            JsonClass jsonData = new JsonClass();
-            jsonData.PostData(folderName);
+            RequestClass requestMethod = new RequestClass();
+            string response=requestMethod.CreateFolder(folderName);
+            JObject obj=JObject.Parse(response);
+            bool b = (bool)obj["ok"];  
+            if (b)
+            {
+                Console.WriteLine(string.Format("Folder named {0} was created successfully"), folderName);
+            }
+            else
+            {
+                Console.WriteLine(string.Format("An occured the error while creating named {0}"), folderName);
+            }
         }
     }
 }

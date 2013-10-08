@@ -150,5 +150,9 @@ namespace DocumentService
                 ? currentPath
                 : GetFolderPath(enumerable, folder.ParentFolder.Value, currentPath);
         }
+        public int GetUserId(string username, string password)
+        {
+            return _documentRepository.GetUserId(username, password);
+        }
     }
 }
