@@ -6,7 +6,6 @@ namespace MyDocuWithCommand
 {
     public class Md:ICommand
     {
-        public string folderName { get; set; }
         public Md()
         {
             
@@ -14,10 +13,16 @@ namespace MyDocuWithCommand
 
         public void Execute()
         {
+            throw new NotImplementedException();
+        }
+
+        public void ExecuteWithParameter(string folderName)
+        {
+
             RequestClass requestMethod = new RequestClass();
-            string response=requestMethod.CreateFolder(folderName);
-            JObject obj=JObject.Parse(response);
-            bool b = (bool)obj["ok"];  
+            string response = requestMethod.CreateFolder(folderName);
+            JObject obj = JObject.Parse(response);
+            bool b = (bool)obj["ok"];
             if (b)
             {
                 //Console.WriteLine(string.Format("Folder named {0} was created successfully"), folderName);

@@ -12,5 +12,11 @@ namespace MyDocuWithCommand
         {
             Environment.Exit(0);
         }
+
+
+        public void ExecuteWithParameter(string folderName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

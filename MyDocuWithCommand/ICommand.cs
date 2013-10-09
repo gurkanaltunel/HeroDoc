@@ -9,5 +9,6 @@ namespace MyDocuWithCommand
     interface ICommand
     {
         void Execute();
+        void ExecuteWithParameter(string folderName);
     }
 }

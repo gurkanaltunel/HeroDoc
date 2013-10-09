@@ -21,7 +21,7 @@ namespace MyDocuWithCommand
         {
             _input = input;
         }
-       
+
         internal static ICommand GetCommand(string inputcommand)
         {
             var arguments = inputcommand.Split(' ');
@@ -37,6 +37,23 @@ namespace MyDocuWithCommand
                 {
                     throw new NoCommandWasFoundException(keyArgument);
                 }
+            }
+            else
+            {
+                throw new InvalidArgumentException();
+            }
+        }
+        internal static string[] GetParameters(string inputcommand)
+        {
+            string[] array = new string[2];
+            var arguments = inputcommand.Split(' ');
+            if (arguments != null && arguments.Length > 0)
+            {
+                for (int i = 0; i < arguments.Length; i++)
+                {
+                    array[i] = arguments[i];
+                }
+                return array;
             }
             else
             {
