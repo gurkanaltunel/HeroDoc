@@ -47,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cd.cs" />
     <Compile Include="Exit.cs" />
+    <Compile Include="InvalidArgumentException.cs" />
+    <Compile Include="NoCommandWasFoundException.cs" />
     <Compile Include="RequestClass.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="Dir.cs" />
     <Compile Include="ICommand.cs" />
-    <Compile Include="ICommandFactory.cs" />
     <Compile Include="InputCommand.cs" />
     <Compile Include="Md.cs" />
     <Compile Include="Program.cs" />

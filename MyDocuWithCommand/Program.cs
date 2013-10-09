@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DocumentService.Abstractions;
 
 namespace MyDocuWithCommand
 {
@@ -11,12 +6,21 @@ namespace MyDocuWithCommand
     {
         static void Main(string[] args)
         {
-            string command = Console.ReadLine();
-            string parameter = Console.ReadLine();
-            InputCommand input = new InputCommand(command, parameter);
-            ICommandFactory comfactory = new CommandFactory(input);
-            comfactory.Specify();
-            Console.ReadLine();
+            while (true)
+            {
+                Console.WriteLine("command prompt");
+                string inputcommand = Console.ReadLine();
+                try
+                {
+                    ICommand cmd = CommandFactory.GetCommand(inputcommand);
+                    cmd.Execute();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
     }
 }

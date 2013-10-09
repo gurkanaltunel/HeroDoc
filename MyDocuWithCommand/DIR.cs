@@ -10,6 +10,7 @@ namespace MyDocuWithCommand
         public string Name { get; set; }
         public string ParentFolder { get; set; }
         public string CreateDate { get; set; }
+        public Dictionary<int, string> FolderValue = new Dictionary<int, string>();
 
         public Dir()
         {
@@ -40,6 +41,7 @@ namespace MyDocuWithCommand
                string name = (string)jDir[i]["Name"];
                string createDate = (string)jDir[i]["CreateDate"];
                string parentFolder = (string)jDir[i]["ParentFolder"];
+               FolderValue.Add((int)jDir[i]["Id"], (string)jDir[i]["Name"]);
                Dir dir = new Dir
                {
                    Name = name,

@@ -4,12 +4,12 @@ using Newtonsoft.Json.Linq;
 
 namespace MyDocuWithCommand
 {
-    public class Md
+    public class Md:ICommand
     {
         public string folderName { get; set; }
-        public Md(string parameter)
+        public Md()
         {
-            folderName = parameter;
+            
         }
 
         public void Execute()
@@ -20,7 +20,8 @@ namespace MyDocuWithCommand
             bool b = (bool)obj["ok"];  
             if (b)
             {
-                Console.WriteLine(string.Format("Folder named {0} was created successfully"), folderName);
+                //Console.WriteLine(string.Format("Folder named {0} was created successfully"), folderName);
+                Console.WriteLine("folder was created successfully");
             }
             else
             {

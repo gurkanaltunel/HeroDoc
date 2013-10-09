@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DocumentService.Abstractions;
 
 namespace MyDocuWithCommand
 {
-    public interface ICommandFactory
+    public class Cd
     {
-        void Specify();
+        public string FolderPath { get; set; }
+        public Cd(string folderPath)
+        {
+            FolderPath = folderPath;
+        }
     }
 }
