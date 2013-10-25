@@ -15,7 +15,7 @@ namespace MyDocuWithCommand
         {
            
         }
-        public void Execute()
+        public void Execute(object[] parameters)
         {
             foreach (var item in Folders())
             {
@@ -49,12 +49,6 @@ namespace MyDocuWithCommand
                folders.Add(dir);
             }
             return folders;
-        }
-
-
-        public void ExecuteWithParameter(string folderName)
-        {
-            throw new NotImplementedException();
         }
     }  
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Text;
 using System.Net;
 using System.IO;
@@ -20,7 +21,6 @@ namespace MyDocuWithCommand
             try
             {
                 Response = (HttpWebResponse)Request.GetResponse();
-                CookieCollection collect = Response.Cookies;
                 
                 using (Stream responseStream = Response.GetResponseStream())
                 {
@@ -70,6 +70,33 @@ namespace MyDocuWithCommand
                 throw ex;
                
             }     
+        }
+        public string GetProfiles()
+        {
+            Request = (HttpWebRequest)WebRequest.Create("http://localhost:45704/Home/AddFile");
+            Request.Method = "GET";
+            Request.ContentType = "application/json";
+            try
+            {
+                Response = (HttpWebResponse)Request.GetResponse();
+                using (Stream str = Response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(str, Encoding.UTF8);
+                    return reader.ReadToEnd();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public string CreateFile(int profileName,string filePath)
+        {
+            var client = new WebClient();
+            byte[] array = client.UploadFile(string.Format("http://localhost:45704/Home/AddFile?profileName={0}&file={1}",profileName,filePath), "POST", filePath);
+            string result = System.Text.Encoding.ASCII.GetString(array);
+            return result;     
         }
     }
 }

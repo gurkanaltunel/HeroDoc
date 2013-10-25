@@ -13,15 +13,8 @@ namespace MyDocuWithCommand
                 try
                 {
                     ICommand cmd = CommandFactory.GetCommand(inputcommand);
-                    string[] parameters = CommandFactory.GetParameters(inputcommand);
-                    if (cmd.GetType().Name=="Dir"||cmd.GetType().Name=="Exit")
-                    {
-                        cmd.Execute();
-                    }
-                    else if (cmd.GetType().Name == "Md")
-                    {
-                        cmd.ExecuteWithParameter(parameters[1]);
-                    }
+                    object[] parameters = CommandFactory.GetParameters(inputcommand);
+                    cmd.Execute(parameters);
                 }
                 catch (Exception ex)
                 {

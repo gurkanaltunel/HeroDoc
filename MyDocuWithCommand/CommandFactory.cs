@@ -15,7 +15,8 @@ namespace MyDocuWithCommand
         {
             {"dir", new Dir()},
             {"md",new Md()},
-            {"exit",new Exit()}
+            {"exit",new Exit()},
+            {"copy",new Copy()}
         };
         public CommandFactory(InputCommand input)
         {
@@ -43,13 +44,13 @@ namespace MyDocuWithCommand
                 throw new InvalidArgumentException();
             }
         }
-        internal static string[] GetParameters(string inputcommand)
+        internal static object[] GetParameters(string inputcommand)
         {
-            string[] array = new string[2];
             var arguments = inputcommand.Split(' ');
+            object[] array = new string[arguments.Length];
             if (arguments != null && arguments.Length > 0)
             {
-                for (int i = 0; i < arguments.Length; i++)
+                for (int i = 1; i < arguments.Length; i++)
                 {
                     array[i] = arguments[i];
                 }

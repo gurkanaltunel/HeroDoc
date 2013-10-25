@@ -8,7 +8,6 @@ namespace MyDocuWithCommand
 {
     interface ICommand
     {
-        void Execute();
-        void ExecuteWithParameter(string folderName);
+        void Execute(object[] parameters); //bu method a object array parametre olarak gelecek.
     }
 }

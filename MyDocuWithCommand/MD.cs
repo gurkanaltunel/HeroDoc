@@ -11,16 +11,10 @@ namespace MyDocuWithCommand
             
         }
 
-        public void Execute()
+        public void Execute(object[] parameters)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteWithParameter(string folderName)
-        {
-
             RequestClass requestMethod = new RequestClass();
-            string response = requestMethod.CreateFolder(folderName);
+            string response = requestMethod.CreateFolder(parameters[1].ToString());
             JObject obj = JObject.Parse(response);
             bool b = (bool)obj["ok"];
             if (b)
@@ -30,7 +24,7 @@ namespace MyDocuWithCommand
             }
             else
             {
-                Console.WriteLine(string.Format("An occured the error while creating named {0}"), folderName);
+                Console.WriteLine(string.Format("An occured the error while creating named {0}"), parameters[1].ToString()); //parametre gelecek
             }
         }
     }

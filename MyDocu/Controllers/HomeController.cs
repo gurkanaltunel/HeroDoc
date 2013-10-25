@@ -48,17 +48,21 @@ namespace MyDocu.Controllers
         [HttpPost]
         public JsonResult AddFile(int profileName, HttpPostedFileBase file)
         {
+            //temporary solution 
+            var currentFolder = _documentService.GetFolderInformation(2);
+            _sessionHelper.CurrentFolder = currentFolder;
+
             _documentService.CreateDocument(file.InputStream, profileName, file.FileName);
             return Json(new {ok=true});
         }
         [HttpGet]
-        public ActionResult AddFile()
+        public JsonResult AddFile()
         {
             var addFileModel = new AddFileModel
             {
                 Profiles = _profileRepository.GetProfileForUser(_sessionHelper.CurrentUser.Id)
             };
-            return View(addFileModel);
+            return Json(addFileModel,JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public ActionResult ChangeFolder(int id)

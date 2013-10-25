@@ -8,7 +8,7 @@ namespace MyDocuWithCommand
 {
     public class Exit:ICommand
     {
-        public void Execute()
+        public void Execute(object[] parameters)
         {
             Environment.Exit(0);
         }

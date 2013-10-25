@@ -40,6 +40,7 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,9 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cd.cs" />
+    <Compile Include="Copy.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="NoCommandWasFoundException.cs" />
+    <Compile Include="Profiles.cs" />
     <Compile Include="RequestClass.cs" />
     <Compile Include="CommandFactory.cs" />
     <Compile Include="Dir.cs" />
