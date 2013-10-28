@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MyDocuWithCommand
 {
-    public class Copy:ICommand
+    public class Upload:ICommand
     {
         public void Execute(object[] parameters)
         {

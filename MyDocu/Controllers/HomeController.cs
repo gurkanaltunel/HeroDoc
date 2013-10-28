@@ -23,15 +23,13 @@ namespace MyDocu.Controllers
             _documentService = documentService;
             _profileRepository = profileRepository;
             _sessionHelper = sessionHelper;
-            _sessionHelper.CreateLogin(new UserContext { Id = 1 });
         }
-        //public JsonResult Login(string userName,string Password)
-        //{
-        //    int id = _documentService.GetUserId(userName, Password);
-        //    _sessionHelper.CreateLogin(new UserContext { Id = id });
-        //    return Json(new { ok = true });
-
-        //}
+        public JsonResult Login(string userName, string password)
+        {
+            int id = _documentService.GetUserId(userName, password);
+            _sessionHelper.CreateLogin(new UserContext { Id = id });
+            return Json(new { ok = true });
+        }
         public JsonResult Index()
         {
             var currentFolder = _documentService.GetFolderInformation();
@@ -65,12 +63,12 @@ namespace MyDocu.Controllers
             return Json(addFileModel,JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public ActionResult ChangeFolder(int id)
+        public JsonResult ChangeFolder(int id)
         {
             var model = id == 0 ? _documentService.GetFolderInformation() : _documentService.GetFolderInformation(id);
             _sessionHelper.CurrentFolder = model;
             model.CurrentPath = _documentService.GetFolderPathById(id);
-            return View("Folder", model);
+            return Json(model);
         }
         [HttpGet]
         public ActionResult CreateFolder()

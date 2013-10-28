@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyDocuWithCommand
 {
-    public class Cd:ICommand
+    class Login:ICommand
     {
-
         public void Execute(object[] parameters)
         {
             RequestClass request = new RequestClass();
-            request.ChangeDirectory(parameters[1].ToString());
+            request.Login(parameters[1].ToString(), parameters[2].ToString());
         }
     }
 }

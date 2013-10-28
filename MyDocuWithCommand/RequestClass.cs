@@ -98,5 +98,39 @@ namespace MyDocuWithCommand
             string result = System.Text.Encoding.ASCII.GetString(array);
             return result;     
         }
+        public string ChangeDirectory(string folderId)
+        {
+            Request = (HttpWebRequest)WebRequest.Create(string.Format("http://localhost:45704/Home/ChangeFolder?id={0}",folderId));
+            Request.Method = "POST";
+            string jsonstring = JsonConvert.SerializeObject(folderId);
+            byte[] array = Encoding.UTF8.GetBytes(jsonstring);
+            Request.ContentLength = array.Length;
+            Stream dataStream = Request.GetRequestStream();
+            dataStream.Write(array, 0, array.Length);
+            Response = (HttpWebResponse)Request.GetResponse();
+            dataStream = Response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            return reader.ReadToEnd();
+        }
+        public string Login(string userName, string password)
+        {
+            Request =(HttpWebRequest)WebRequest.Create(string.Format("http://localhost:45704/Home/Login?userName={0}&password={1}",userName,password));
+            Request.Method = "GET";
+            Request.ContentType="application/json";
+            try
+            {
+                Response = (HttpWebResponse)Request.GetResponse();
+                using (Stream str=Response.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(str, Encoding.UTF8);
+                    return reader.ReadToEnd();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

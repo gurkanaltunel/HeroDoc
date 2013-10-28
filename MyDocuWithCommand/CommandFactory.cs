@@ -16,7 +16,9 @@ namespace MyDocuWithCommand
             {"dir", new Dir()},
             {"md",new Md()},
             {"exit",new Exit()},
-            {"copy",new Copy()}
+            {"upload",new Upload()},
+            {"cd",new Cd()},
+            {"login",new Login()}
         };
         public CommandFactory(InputCommand input)
         {

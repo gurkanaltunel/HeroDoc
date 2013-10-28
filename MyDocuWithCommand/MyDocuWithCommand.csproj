@@ -49,7 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cd.cs" />
-    <Compile Include="Copy.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="Upload.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="NoCommandWasFoundException.cs" />
